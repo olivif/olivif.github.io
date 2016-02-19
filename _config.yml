@@ -2,7 +2,7 @@
 title: olivif.github.io
 description: 'A minimal, responsive theme for Jekyll'
 url: 'http://olivif.github.io'
-baseurl: '/'
+baseurl: '/olivif/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
