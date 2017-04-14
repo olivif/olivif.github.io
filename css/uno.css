@@ -1039,8 +1039,7 @@ hr {
 	width: 100%;
 	max-width: none;
 	height: 100%;
-	background: url(../images/background-cover.jpg) top left repeat #666666;
-	background-size: cover; }
+	background: url(../images/cover.jpg) repeat #666666; }
 
 .panel-cover--collapsed {
 	width: 40%;
@@ -1224,15 +1223,13 @@ nav {
 			border-color: #FFF;
 			opacity: 1; }
 
-.navigation--social {
-	margin-left: 1.5em; }
-	.navigation--social a {
-		padding: 6px 8px 6px 9px; }
-		.navigation--social a .label {
-			display: none; }
-		.navigation--social a .icon {
-			display: block;
-			font-size: 1.7em; }
+.navigation--social a {
+	padding: 6px 8px 6px 9px; }
+	.navigation--social a .label {
+		display: none; }
+	.navigation--social a .icon {
+		display: block;
+		font-size: 1.7em; }
 
 .pagination {
 	display: block;
