@@ -1,6 +1,6 @@
 # Site settings
 title: Jon Snow
-description: 'I know nothing 11.'
+description: 'I know nothing.'
 url: 'https://olivif.github.io/jekyll-uno-plus/'
 baseurl: '/jekyll-uno-plus/'
 google_analytics: 'UA-97376068-1'
