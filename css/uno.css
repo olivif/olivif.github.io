@@ -769,10 +769,12 @@ a {
 	color: #e25440; }
 	a:hover {
 		color: #b9301c;
-		-o-transition: .5s;
-		-ms-transition: .5s;
-		-moz-transition: .5s;
-		-webkit-transition: .5s; }
+		-o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		-webkit-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
+}
 
 h1,
 h2,
@@ -1219,7 +1221,7 @@ nav {
 		color: #FFF;
 		opacity: .8; }
 		.navigation__item a:hover {
-			color: #FFF;
+			color: #E24E42;
 			border-color: #FFF;
 			opacity: 1; }
 
