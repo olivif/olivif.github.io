@@ -6,5 +6,6 @@ Install
 
 Run 
 * gem install bundler
+* gem install wdm
 * bundle install
 
