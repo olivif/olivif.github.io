@@ -1,0 +1,45 @@
+# Site settings
+title: Jon Snow
+description: 'I know nothing.'
+url: 'https://olivif.github.io/jekyll-uno-plus/'
+baseurl: '/jekyll-uno-plus/'
+google_analytics: 'UA-97376068-1'
+# disqus_shortname: 'your-disqus-name'
+
+author:
+  name: 'Olivia Ifrim'
+
+social: 
+  - twitter:
+    name: twitter
+    link: https://link1
+  - github:
+    name: github
+    link: https://link2
+  - linkedin:
+    name: linkedin
+    link: https://link3
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
