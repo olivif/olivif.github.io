@@ -1,14 +1,14 @@
 # Site settings
-title: Jekyll-Uno
-description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
-url: 'http://joshgerdes.com/jekyll-uno'
-baseurl: '/jekyll-uno/'
+title: Jekyll-Uno-Plus
+description: 'Jekyll-Uno-Plus'
+url: 'https://olivif.github.io/jekyll-uno-plus/'
+baseurl: '/jekyll-uno-plus/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
 author:
-  name: 'Josh Gerdes'
-  email: josh@joshgerdes.com
+  name: 'Olivia Ifrim'
+  email: olivia_git@outlook.com
   twitter_username: joshgerdes
   facebook_username: joshgerdes
   github_username:  joshgerdes
