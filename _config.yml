@@ -1,0 +1,28 @@
+title: Olivia Ifrim
+email: olivia_git@outlook.com
+description: Intelligence is the ability to adapt to change.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+social: 
+  - twitter:
+    name: twitter
+    link: https://twitter.com/olly2204
+  - github:
+    name: github
+    link: https://github.com/olivif
+  - linkedin:
+    name: linkedin
+    link: https://www.linkedin.com/in/oliviaifrim/
+
+blog: true
+
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
