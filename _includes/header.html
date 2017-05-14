@@ -21,14 +21,6 @@
 
 					<ul class="navigation">
 
-						<!--blog-->
-						<li class="navigation__item">
-							<a href="{{ site.baseurl }}#blog" title="blog" class="blog-button">
-								<i class="fa fa-pencil fa-lg"></i>
-								<span class="label">blog</span>
-							</a>
-						</li>
-
 						<!--social links-->
 						{% for socialItem in site.social %}
 						<li class="navigation__item">
@@ -39,6 +31,13 @@
 						</li>
 						{% endfor %}
 
+						<!--blog-->
+						<li class="navigation__item blog_nav">
+							<a href="{{ site.baseurl }}#blog" title="blog" class="blog-button">
+								<i class="fa fa-pencil fa-lg"></i>
+								<span class="label">blog</span> blog
+							</a>
+						</li>
 					</ul>
 
 				</nav>
@@ -47,7 +46,12 @@
 
 		</div>
 
+		{% include blog.html %}
+
 	</div>
 
-	<div class="panel-cover--overlay"></div>
+	<div class="panel-cover--overlay">
+
+
+	</div>
 </div>

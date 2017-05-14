@@ -1518,3 +1518,15 @@ input[type="tel"] {
 	.btn, .navigation__item a {
 		display: block;
 		margin-bottom: .4em; } }
+
+.blog_nav {
+		display: block;
+		margin-top: 6.5em;
+		width: auto;
+}
+
+.blog-panel {
+	background-color: white;
+	z-index: 20;
+	max-height: 0;
+}
