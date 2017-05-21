@@ -17,26 +17,29 @@ We will build a system of nodes where:
 
 Let’s take an example to see what our DHT should be able to do at the end of the series — note that the final partitioning scheme might be different, this example will serve as a way of us visualizing the end result before jumping to the implementation. 
 
+### Partitioning 
+
 Nodes - diving the alphabet into 4 chunks, we give each node responsibility for one chunk of the data.
 
-```
+```bat 
 Node1 -> A-E
 Node2 -> F-L
 Node3 -> M-S
 Node4 -> T-Z
 ```
 
-Storing data
-Initially, every node has no data stored.
-```
+Initially, all nodes are empty.
+
+```bat 
 Node1 -> A-E : []
 Node2 -> F-L : []
 Node3 -> M-S : []
 Node4 -> T-Z : []
 ```
+### Storing data 
 
-We can execute store operations to store data.
-```
+We can execute `store` operations to store data.
+```bat 
 store("The quick brown fox")
 Node1 -> A-E : []
 Node2 -> F-L : []
@@ -56,10 +59,10 @@ Node3 -> M-S : []
 Node4 -> T-Z : [ "T" -> "The quick brown fox", 
                  "W" -> "What does the fox say" ]
 ```
+### Retrieving data
+And we can execute `find_value` operations to retrieve data stored.
 
-And we can execute find_value operations to retrieve data stored.
-
-```
+```bat 
 find_value("A")
 []
 
