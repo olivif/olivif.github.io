@@ -1,0 +1,55 @@
+<span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+
+<header class="panel-cover">
+	<div class="panel-main">
+
+		<div class="panel-main__inner panel-inverted">
+			<div class="panel-main__content">
+				<a href="{{ site.baseurl }}" title="link to home of {{ site.title }}">
+					<h1 class="panel-cover__title panel-title">{{ site.title }}</h1>
+				</a>
+				<hr class="panel-cover__divider">
+				<p class="panel-cover__description">{{ site.description }}</p>
+				<hr class="panel-cover__divider panel-cover__divider--secondary">
+
+				<div class="navigation-wrapper">
+
+					<nav class="cover-navigation navigation--social">
+
+						<ul class="navigation">
+
+							<!--social links-->
+							{% for socialItem in site.social %}
+							<li class="navigation__item">
+								<a href="{{ socialItem.link }}" title="{{ socialItem.name }}" target="_blank">
+									<i class="fa fa-{{ socialItem.name }} fa-lg"></i>
+									<span class="label">{{ socialItem.name }}</span>
+								</a>
+							</li>
+							{% endfor %}
+
+							<!--blog-->
+							<li class="navigation__item">
+								<a href="{{ site.baseurl }}#blog" title="blog" class="blog-button">
+									<i class="fa fa-pencil fa-lg"></i>
+									<span class="label">blog</span>
+									blog
+								</a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="panel-cover--overlay"></div>
+	</div>
+</header>
