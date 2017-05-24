@@ -1,6 +1,6 @@
 ---
 title:  "Implementing a Bloom filter - Part 3"
-date:   2017-05-23 21:00:00
+date:   2017-05-24 19:00:00
 categories: [bloom-filter]
 tags: [bloom filter, bloom, cpp, c++]
 ---
