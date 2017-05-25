@@ -39,29 +39,46 @@ private:
 };
 ```
 
-Now, you might be asking how we will pick `k` hashing functions. What we actually need is `k` functions which will somehow hash the input, give us `k` different indexes into our bit vector and ensure that these results are consistent. We will simply pick a `SHA256` hashing functions and hash `k` times to get `k` different strings, then convert those to ints and mod by our length. 
+Now, you might be asking how we will pick `k` hashing functions. What we actually need is `k` functions which will somehow hash the input, give us `k` different indexes into our bit vector and ensure that these results are consistent. 
 
-We will use [picosha2](https://github.com/okdshin/PicoSHA2/blob/master/picosha2.h) for doing the hashing.
+But, how can we pick `k` different ways of hashing? There are only a fixed number of [hashing algorithms](https://en.wikipedia.org/wiki/List_of_hash_functions), and in theory our `k` could be anything. Luckily, there is a way of generating a different hash based on the iteration number, this technique is called [double hashing](https://en.wikipedia.org/wiki/Double_hashing). Let's see how this works. 
+
+ ```
+ h(input, iteration) = h1(input) + iteration * h2(input)
+ ```
+
+So all we have to do is pick 2 different hashing functions, and for every iteration compute the final hash using the formula above. 
+
+We will use [Murmur Hash](https://github.com/aappleby/smhasher) for generating the two unique hashes.
 
 ```c++
-std::string Hash::hash(const std::string & input) const
+std::array<uint32_t, 2> Hash::hash(const std::string & input) const
 {
-    // generate the hex hash of the input
-    std::string hashedInput;
-    picosha2::hash256_hex_string(input, hashedInput);
+    std::array<uint32_t, 2> out;
+    MurmurHash3_x86_32(input.data(), sizeof(input.data()), 0, out.data());
 
-    return hashedInput;
+    return out;
 }
 ```
 
-Now that we have a way of generating a hash, we will hash `k` times and convert each hash to an int. For simplicity we'll exclude the implementation here but you can see the full code at [Hash.cpp](https://github.com/olivif/bloom-filter/blob/master/BloomFilter/Hash.cpp).
+And now we just apply the forumula for every iteration. We also modulo with the size of our filter to make sure the numbers we get are actually in our Bloom filter range.
+
 
 ```c++
-std::vector<unsigned int> Hash::hash(const std::string& input, unsigned int iterations, unsigned int max) const
+std::vector<uint32_t> Hash::hash(const std::string& input, unsigned int iterations, unsigned int max) const
 {
-    // generate k hashes
-    // convert each hash to an int 
-    // mod each int by max
+    auto hashesIndexed = std::vector<uint32_t>();
+    auto hashedInput = this->hash(input);
+    auto firstHash = hashedInput[0];
+    auto secondHash = hashedInput[0];
+
+    for (unsigned int i = 0; i < iterations; i++)
+    {
+        auto hashedInputInt = (firstHash + secondHash * i) % max;
+        hashesIndexed.push_back(hashedInputInt);
+    }
+
+    return hashesIndexed;
 }
 ```
 
