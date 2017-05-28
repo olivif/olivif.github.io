@@ -115,4 +115,4 @@ Checking whether an element is present in the Bloom filter
 * apply all k hashing functions to input
 * if all bits defined by the hashing are set (1) we return true, otherwise we return false
 
-Next up, we'll look at how to implement this.
+[Next up](/2017/bloom-filter-part-3/), we'll look at how to implement this.
