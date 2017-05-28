@@ -62,7 +62,7 @@ k3("D") -> 0
 // In this case
 // 4 is not set
 // 7 is not set
-// 0 is set (it was set but putting "A" in)
+// 0 is set (it was set by putting "A" in)
 // So we have at least one bit which is not set, so we return false.
 false
 ```
@@ -92,9 +92,9 @@ k2("D") -> 7
 k3("D") -> 0
 
 // In this case
-// 4 is set (it was set but putting "B" in)
-// 7 is set (it was set but putting "B" in)
-// 0 is set (it was set but putting "A" in)
+// 4 is set (it was set by putting "B" in)
+// 7 is set (it was set by putting "B" in)
+// 0 is set (it was set by putting "A" in)
 // All the bits are now set, so we return true.
 true
 ```
