@@ -4,7 +4,7 @@ description: 'Intelligence is the ability to adapt to change.'
 url: 'https://olivif.github.io/'
 baseurl: '/'
 google_analytics: 'UA-99619076-1'
-# disqus_shortname: 'your-disqus-name'
+disqus_shortname: 'olivif'
 
 author:
   name: 'Olivia Ifrim'
