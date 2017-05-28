@@ -27,6 +27,8 @@ k2("A") -> 2
 k3("A") -> 9
 
 // Now we set all those bits to 1
+// Note that we read the bits from the left, since we are 
+// talking about an array of single bits, not bits in a byte.
 [1, 0, 1, 0, 0, 0, 0, 0, 0, 1]
 ```
 
