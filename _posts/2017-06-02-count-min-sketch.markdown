@@ -20,7 +20,9 @@ We will need:
 * a 2D array of `rows` x `rows` (`rows` and `cols` should be chosed based on the estimated number of unique event types inserted into the sketch)
 * one hash function per row (the hash functions should be independent)
 
-We'll start off with a blank 2D array.
+
+We'll start off with a blank 2D array. 
+
 
 ```c++
 // rows = 3, cols = 5
@@ -32,18 +34,70 @@ We'll start off with a blank 2D array.
 Now let's insert some events.
 
 ```c++
-insert(event("A"))
+// This will insert an event of type "A".
+insert("A")
 
 // For each row, we'll hash the event type with the
 // hashing function for that row to get an index k
-// row 0 - 2
-// row 1 - 4
-// row 2 - 0
+// h0("A") - 2
+// h1("A") - 4
+// h2("A") - 0
 
 // And now we index into every row with the computed k
 // and increment by one.
 0 0 1 0 0
-0 0 0 1 0
+0 0 0 0 1
 1 0 0 0 0
 ```
+
+Now an event of a different type.
+```c++
+insert("B")
+
+// h0("B") - 1
+// h1("B") - 4
+// h2("B") - 3
+0 1 1 0 0
+0 0 0 0 2
+1 0 0 1 0
+```
+
+Rememeber we are inserting a stream of events, so we will have many events of the same type. So let's insert another event of type "A";
+```c++
+insert("A")
+
+// h0("A") - 2
+// h1("A") - 4
+// h2("A") - 0
+0 1 2 0 0
+0 0 0 0 3
+2 0 0 1 0
+```
+
+Great, now how do we query for the frequency of an event?
+
+```c++
+getFrequency("A")
+
+// This is our state
+// 0 1 2 0 0
+// 0 0 0 0 3
+// 2 0 0 1 0
+
+// We'll hash again, just like when inserting.
+// h0("A") - 2
+// h1("A") - 4
+// h2("A") - 0
+
+// Now for every row we'll get sketch[row, hrow("A")]
+// sketch[0, 2] - 2 (the frequency on this row is 2)
+// sketch[1, 4] - 3 (the frequency on this row is 3)
+// sketch[2, 0] - 2 (the frequency on this row is 2)
+
+// And now we take the min of those
+// min(2, 3, 2)
+2
+```
+
+
 
