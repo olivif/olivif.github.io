@@ -99,4 +99,41 @@ getFrequency("A")
 2
 ```
 
-Next up, we'll implement this.
+Next up, we'll implement this. We already have all the building blocks for double hashing from the Bloom filter so the implementation should be pretty straight-forward. 
+
+```c++
+void CountMinSketch::insert(const std::string & key)
+{
+    for (size_t row = 0; row < m_rows; ++row)
+    {
+        // Hash 
+        auto k = m_hash.hashIteration(key, row, m_cols);
+
+        // Increment
+        ++(m_vector[row][k]);
+    }
+}
+
+uint32_t CountMinSketch::getFrequency(const std::string & key) const
+{
+    size_t minFrequency = std::numeric_limits<std::size_t>::max();
+
+    for (size_t row = 0; row < m_rows; ++row)
+    {
+        // Hash 
+        auto k = m_hash.hashIteration(key, row, m_cols);
+
+        // Find min 
+        auto currentFrequency = m_vector[row][k];
+
+        if (currentFrequency < minFrequency)
+        {
+            minFrequency = currentFrequency;
+        }
+    }
+
+    return minFrequency;
+}
+```
+
+You can see the full implementation at [Sketch](https://github.com/olivif/bloom-filter/tree/master/BloomFilter/src).
