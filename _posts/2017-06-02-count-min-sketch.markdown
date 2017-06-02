@@ -1,8 +1,8 @@
 ---
-title:  "Count min sketch"
+title:  "Count min sketch explained"
 date:   2017-06-02 17:59:00
-categories: []
-tags: []
+categories: [probabilistic data structure]
+tags: [sketch, count min sketch, hashing, cpp, c++]
 ---
 
 [Last time](/2017/bloom-filter-part-3/) we looked at Bloom filters, which is one type of probabilistic data structure. In this post we will look at another one - [Count Min Sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch).   
@@ -99,5 +99,4 @@ getFrequency("A")
 2
 ```
 
-
-
+Next up, we'll implement this.
