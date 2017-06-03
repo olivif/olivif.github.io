@@ -1,0 +1,8 @@
+---
+title:  "Quickly finding the intersection of two sets with a MinHash"
+date:   2017-06-03 12:08:00
+categories: []
+tags: []
+---
+
+With the ever increasing amount of data these days: tweets, emails, documents, posts, etc.  
