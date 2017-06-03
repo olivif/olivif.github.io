@@ -30,7 +30,7 @@ defaults:
 
 # Feature toggles
 features:
-  readingtime: false
+  readingtime: true
 
 # Build settings
 destination: _site
@@ -45,5 +45,5 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems: ['jekyll-paginate', 'jekyll-time-to-read']
+gems: ['jekyll-paginate']
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
