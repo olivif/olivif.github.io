@@ -28,6 +28,10 @@ defaults:
     values:
         layout: 'post'
 
+# Feature toggles
+features:
+  readingtime: false
+
 # Build settings
 destination: _site
 paginate: 10

@@ -26,13 +26,18 @@ layout: default
             {% endfor %}
           </span>
 
-          <!--separator-->
-          &#8226;
+
 
           <!--reading time-->
-          <span class="post-meta__readingtime readingtime"> 
-            {{ post.content | reading_time_as_i }} read
-          </span>
+          {% if site.features.readingtime %} 
+
+            <!--separator-->
+            &#8226;
+
+            <span class="post-meta__readingtime readingtime"> 
+              {{ post.content | reading_time_as_i }} read
+            </span>
+          {% endif %}
 
         </div>
 
