@@ -874,7 +874,8 @@ pre {
 .date,
 .time,
 .author,
-.tags {
+.tags,
+.readingtime {
 	font-size: .8em;
 	color: #c7c7c7; }
 	.date a,
@@ -983,6 +984,9 @@ hr {
 
 .post-meta__tags {
 	margin-left: .4em; }
+
+.post-meta__readingtime {
+	margin-right: .5em; }
 
 .post-meta__author {
 	margin-left: 1.5em; }
