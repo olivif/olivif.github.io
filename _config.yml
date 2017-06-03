@@ -30,7 +30,7 @@ defaults:
 
 # Feature toggles
 features:
-  readingtime: true
+  readingtime: true 
 
 # Build settings
 destination: _site
