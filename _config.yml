@@ -12,14 +12,14 @@ author:
 social: 
   - twitter:
     name: twitter
-    link: https://twitter.com/olly2204
+    link: https://twitter.com/oliviff
   - github:
     name: github
     link: https://github.com/olivif
   - linkedin:
     name: linkedin
     link: https://www.linkedin.com/in/oliviaifrim/
-
+ 
 defaults:
   -
     scope:
@@ -27,6 +27,10 @@ defaults:
       type: 'posts'
     values:
         layout: 'post'
+
+# Feature toggles
+features:
+  readingtime: true
 
 # Build settings
 destination: _site
@@ -41,5 +45,5 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems: ['jekyll-paginate', 'jekyll-time-to-read']
+gems: ['jekyll-paginate']
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
