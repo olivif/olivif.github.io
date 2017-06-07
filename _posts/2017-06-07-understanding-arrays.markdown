@@ -113,7 +113,9 @@ Sue
 
 Now why would we pick one over the other? Well, under the hood `forEach` does the same thing as our raw `for`, so we get correct results either way. The difference is in readibility because the `forEach` syntax is a lot easier to understand and also we don't need to worry about making mistakes with the indexes (such as starting at 1 instead of 0 or going over length - 1).  
 
+And that's pretty much it for arrays. 
 
+Next up, we'll pick a different data structure to look at.
 
 -----
 You can browse the official documentation for arrays for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [C#](https://msdn.microsoft.com/en-us/library/system.array(v=vs.110).aspx), [Python](https://docs.python.org/2/library/array.html#module-array). 
