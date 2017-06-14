@@ -5,20 +5,20 @@ categories: [encoding-series]
 tags: [encoding, run length encoder, compression, data]
 ---
 
-Today we'll look at a very simple data compression scheme called run length encoding. In fact, you might have already implemented a run length encoder without knowing it!
+This post is the start of a mini-series on [data compression](https://en.wikipedia.org/wiki/Data_compression). Over the course of the series we will look at some algorithms for encoding, understand their strengths and weaknesses and we'll wrap up at the end with some wise thoughts after we've learnt all of this. 
 
-But let us take a step back. What is data compression and why is it useful? 
+First, what is data compression and why is it useful? 
 
-Data compression is a way of encoding the raw information in a new format such that the resulting total byte size is smaller. It's useful because often we are dealing with large images, videos, or any byte stream really and having a way to compress that information can be very handy. 
+Data compression is a way of encoding the raw information in a new format such that the resulting total byte size is smaller. The reason why this is useful is because we live in a world of huge images, videos, documents, etc. Watching a video on my phone requires a different resolution and quality than watching it on my 4K monitor, and encoding is one way to guarantee an experience customized to the device used but also the bandwidth constraints.   
 
-But you might wonder, how do we compress the information so that we don't lose any information? Well, sometimes we do sometimes we don't. The two big types of compression are: **lossy** and **lossless**. Generally lossy algorithms have some sort of heuristic which tells them how to discard the least important information. For example, the JPEG format uses a model based on the human visual system to tell it which information is not perceptible by the human eye, and thus can be discarded without any perceptible loss of information. Lossless ones usually use cool tricks to store the data in a different format which minimizes duplication.
+But you might wonder, how do we compress the data so that we don't lose any information? Well, sometimes we do sometimes we don't. The two big types of compression are: **lossy** and **lossless**. Generally lossy algorithms have some sort of heuristic which tells them how to discard the least important information. For example, the JPEG format uses a model based on the human visual system to tell it which information is least perceptible by the human eye, and thus can be discarded without any preceived loss of information. Lossless algorithms usually use interesting tricks to manipulate and store the data in a different format which minimizes duplication.
 
-Now that we understand a bit about data compression, let's got back to the run length encoder. 
+Now that we understand a bit about data compression, let's got back to what this post is about, [run length encoding](https://en.wikipedia.org/wiki/Run-length_encoding). This is one of the most basic compression schemes. In fact, you might have already implemented a run length encoder without knowing it!
 
-Here's how it works.
+Let's see how it works.
 
 ```cpp
-// This is our raw data, uncompressed
+// This is our raw data, uncompressed.
 "aaaaaaabcdefff"
 
 // The RLE is used to compress identical adjacent characters.
@@ -35,8 +35,6 @@ The code is pretty straight-forward.
 ```cpp
 std::string RunLengthEncoder::Encode(const std::string& data) const
 {
-    // For every character, check if it's part of a sequence.
-    // If it is, collapse it and encode into {char}{sequencelength}
     std::stringstream stream;
     size_t current = 0;
     size_t length = data.length();
@@ -63,4 +61,4 @@ std::string RunLengthEncoder::Encode(const std::string& data) const
 
 Now, pop quiz. Is RLE a lossy or lossless algorithm? Only counts if you do it without google.
 
-Next up, we'll look at a slightly more sophisticated encoding algorithm, though not by much.
+Next up, we'll pick a different encoding algorithm. 
